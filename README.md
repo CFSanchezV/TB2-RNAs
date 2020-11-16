@@ -4,6 +4,7 @@
 
 **poner .gif de GUI** en funcionamiento
 
+### TODO
 ![](./res/GUI_demo.gif)
 
 ## Dataset
@@ -33,7 +34,7 @@ El formato de dataset de entrada utilizado se muestra a continuación. Se usa la
 
 ![](./res/nn_diagram.png)
 
-Una red neuronal multicapa que consiste en una capa de entrada, una oculta y una de salida. Los 9 nodos de la capa de entrada corresponden a los 5 atributos utilizados del dataset procesado. Asimismo, la capa oculta tiene 9 nodos y la capa de salida tiene 3, las cuales corresponden a las 3 clasificaciones únicas de especies de pingüino.
+Una red neuronal multicapa que consiste en una capa de entrada, una oculta y una de salida. Los 9 nodos de la capa de entrada corresponden a los 6 atributos utilizados del dataset procesado y codificado. Asimismo, la capa oculta tiene 9 nodos y la capa de salida tiene 3, las cuales corresponden a las 3 clasificaciones únicas de especies de pingüino.
 
 
 ## Comenzando 🚀
