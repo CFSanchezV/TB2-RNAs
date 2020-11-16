@@ -10,7 +10,7 @@ def run():
     root.resizable(width=True,height=True)
 
     # ---------- ENTRADAS
-    fontStyle = tkFont.Font(family="Candara", size=12)
+    fontStyle = tkFont.Font(family="Verdana", size=12)
     secondayFontStyle = tkFont.Font(family="Calibri Light", size=12)
     tk.Label(root,text="Hábitat",bg="white",font=fontStyle).grid(row=0,sticky='W')
     tk.Label(root,text="Longitud del Pico",bg="white",font=fontStyle).grid(row=1,sticky='W')
