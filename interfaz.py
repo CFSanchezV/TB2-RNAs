@@ -2,6 +2,9 @@ import tkinter as tk
 import tkinter.font as tkFont
 from tkinter import ttk
 from tkinter import messagebox
+from PIL import ImageTk, Image
+
+import random as rand
 
 def actualizarEntradas(entradas):
     for i in range(len(entradas)):
@@ -26,16 +29,42 @@ def valiarEntradasNumericas(entradas):
                 return None
         return entradas
 
-def obtenerEspecie(inputs):
+def obtenerEspecie(inputs,outputs):
     entradas = inputs[:]
     entradas = actualizarEntradas(entradas)
     entradas = validarEntradasVacias(entradas)
     entradas = valiarEntradasNumericas(entradas)
+    salidas = outputs[:]
     if entradas != None:
         # *
         # * EJECUTAR ALGORITMO, LOS VALORES DE ENTRADA YA SE ENCUENTRAN VALIDADOS
         # *
         print(entradas)
+        # *
+        # * PROBANDO CON RESULTADO DE ESPECIE ADELIE
+        # *
+        especie = rand.randint(1,3)
+        if especie == 1:
+            image = Image.open("p_adelie.png")
+            image = image.resize((225,225),Image.ANTIALIAS)
+            imageTk = ImageTk.PhotoImage(image)
+            salidas[0].configure(image=imageTk)
+            salidas[0].image = imageTk
+            salidas[1]["text"] = "La especie del pingüino es Adelie"
+        if especie == 2:
+            image = Image.open("p_chinstrap.png")
+            image = image.resize((225,225),Image.ANTIALIAS)
+            imageTk = ImageTk.PhotoImage(image)
+            salidas[0].configure(image=imageTk)
+            salidas[0].image = imageTk
+            salidas[1]["text"] = "La especie del pingüino es Chinstrap"
+        if especie == 3:
+            image = Image.open("p_gentoo.png")
+            image = image.resize((225,225),Image.ANTIALIAS)
+            imageTk = ImageTk.PhotoImage(image)
+            salidas[0].configure(image=imageTk)
+            salidas[0].image = imageTk
+            salidas[1]["text"] = "La especie del pingüino es Gentoo"
 
 def run():
     root = tk.Tk()
@@ -85,13 +114,19 @@ def run():
     tk.Label(root,text="mm",bg="white",font=fontStyle).grid(row=3,column=2,sticky='W')
     tk.Label(root,text="g",bg="white",font=fontStyle).grid(row=4,column=2,sticky='W')
 
-    # ---------- IMAGEN
-    image = tk.PhotoImage(file="penguin.png")
-    tk.Label(root,image=image,bg="white",font=fontStyle).grid(row=6,column=0,columnspan=2,rowspan=2,sticky="WENS",padx=5,pady=5)
-    
     # ---------- SALIDAS
-    tk.Button(root,text="Especie",command=lambda:obtenerEspecie(entradas),bd=1,bg="#EB984E",relief="raised",width=20,font=thirdFontStyle).grid(row=9,column=0,columnspan=3)
-    tk.Label(root,text="La especie del pingüino es Adelie",bg="white",font=thirdFontStyle).grid(row=10,column=0,columnspan=3)
+    image = Image.open("p_default.png")
+    image = image.resize((225,225),Image.ANTIALIAS)
+    imageTk = ImageTk.PhotoImage(image)
+    imageOutput = tk.Label(root,image=imageTk,bg="white",font=fontStyle)
+    imageOutput.grid(row=6,column=0,columnspan=2,rowspan=2,sticky="WENS",padx=5,pady=5)
+    
+    textOutput = tk.Label(root,text="No se ha determinado ninguna especie",bg="white",font=thirdFontStyle)
+    textOutput.grid(row=10,column=0,columnspan=3)
+    salidas = [imageOutput,textOutput]
+
+    tk.Button(root,text="Especie",command=lambda:obtenerEspecie(entradas,salidas),bd=1,bg="#EB984E",relief="raised",width=20,font=thirdFontStyle).grid(row=9,column=0,columnspan=3)
+
     root.mainloop()
 
 if __name__ == "__main__":
