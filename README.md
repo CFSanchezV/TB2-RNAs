@@ -2,8 +2,6 @@
 
 ## Pequeño Vistazo
 
-### TODO:
-**poner foto de GUI** en funcionamiento
 ![](./res/GUI_demo.png)
 
 
