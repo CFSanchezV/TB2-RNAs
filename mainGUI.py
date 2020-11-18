@@ -154,18 +154,23 @@ def process_all_input(input_list):
     rounded_predicted_output = np.around(predicted_output, 1).copy()
         
     # print(rounded_predicted_output)
-    print("Output is:")
+    print("Guia:")
     print("Adelie = [1, 0, 0]", '||',
           "Chinstrap = [0, 1, 0]", '||', "Gento = [0, 0, 1]")
+    print()
     
     lst = rounded_predicted_output.tolist()
     
     for elem in lst:
         if elem == [1.0, 0.0, 0.0]:
+            print("Salida:", elem)
             return 1
         elif elem == [0.0, 1.0, 0.0]:
+            print("Salida:", elem)
             return 2
         elif elem == [0.0, 0.0, 1.0]:
+            print("Salida:", elem)
             return 3
         else:
+            print("Salida:", elem)
             return -1

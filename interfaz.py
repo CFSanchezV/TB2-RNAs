@@ -48,11 +48,9 @@ def obtenerEspecie(inputs, outputs):
         print("Entradas:", end="")
         print(entradas)
         especie = process_all_input(entradas)
-        # print(entradas)
+        print()
         # *
-        # * PROBANDO CON RESULTADO DE ESPECIE ADELIE
         # *
-        # especie = rand.randint(1, 3)
         if especie == 1:
             image = Image.open("./imgs/p_adelie.png")
             image = image.resize((225, 225), Image.ANTIALIAS)
