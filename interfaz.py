@@ -74,6 +74,13 @@ def obtenerEspecie(inputs, outputs):
             salidas[0].configure(image=imageTk)
             salidas[0].image = imageTk
             salidas[1]["text"] = "La especie del pingüino es Gentoo"
+        if especie == -1:
+            image = Image.open("./imgs/p_default.png")
+            image = image.resize((225, 225), Image.ANTIALIAS)
+            imageTk = ImageTk.PhotoImage(image)
+            salidas[0].configure(image=imageTk)
+            salidas[0].image = imageTk
+            salidas[1]["text"] = "No se pudo determinar una especie"
 
 
 def run():
